@@ -10,12 +10,13 @@ type StyledCardProps = {
 const StyledCard = styled(Card, {
     name: 'StyledCard',
     slot: 'Wrapper'
-})<StyledCardProps>((props) => ({
+})<StyledCardProps>((props) => { 
+    return ({
     margin: '1em',
     minWidth: '300px',
     maxWidth: '25%',
-    backgroundColor: props.isDeviceSelected ? 'lightgrey': 'initial' 
- }));
+    backgroundColor: props.isDeviceSelected ? props.theme.palette.grey['400'] : props.theme.palette.background.default
+ }) });
 
 const DeviceInfo = (infoName: string, infoValue: string | number) => 
     <Typography variant="h6">{infoName}: <Typography variant="body2">{infoValue}</Typography></Typography>

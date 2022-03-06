@@ -4,6 +4,7 @@ import HeaderBar from '../components/HeaderBar';
 import { PageContainer } from '../components/PageContainer';
 import { ActionsContext } from '../context/actionsContext';
 import { DataGrid } from '@mui/x-data-grid';
+import ThemeButton from '../components/ThemeButton';
 
 const ActionLogs = () => {
     const { actions } = useContext(ActionsContext);
@@ -37,6 +38,7 @@ const ActionLogs = () => {
                 <Typography variant="h3">Action Logs</Typography>
                 <DataGrid autoHeight rows={actions} columns={columns} />
             </PageContainer>
+            <ThemeButton />
         </Container>
     )
 };

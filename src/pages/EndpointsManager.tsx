@@ -4,6 +4,7 @@ import React from 'react';
 import DeviceCard from "../components/DeviceCard";
 import HeaderBar from "../components/HeaderBar";
 import { PageContainer } from "../components/PageContainer";
+import ThemeButton from "../components/ThemeButton";
 import { ActionsContext } from "../context/actionsContext";
 import { getEndpoints } from "../services";
 import { Device } from "../types/device";
@@ -121,8 +122,8 @@ class EndpointsManager extends React.Component<EMProps, EMState> {
                 <Typography variant="h3">Endpoints Manager</Typography>
                 <Typography variant="h5">Available Endpoints</Typography>
                 <ActionButtonContainer>
-                    <Button disabled={!this.hasDeviceSelected()} onClick={this.scanDevices}>Scan</Button>
-                    <Button disabled={!this.hasDeviceSelected()} onClick={this.terminateDevices}>Terminate</Button>
+                    <Button variant="text" disabled={!this.hasDeviceSelected()} onClick={this.scanDevices}>Scan</Button>
+                    <Button variant="text" disabled={!this.hasDeviceSelected()} onClick={this.terminateDevices}>Terminate</Button>
                 </ActionButtonContainer>
 
                 <DeviceList>
@@ -138,6 +139,7 @@ class EndpointsManager extends React.Component<EMProps, EMState> {
                 </DeviceList>
             </PageContainer>
             <Pagination count={this.state.endpoints.length / this.devicesPerPage } page={this.state.page} onChange={this.changePage} />
+            <ThemeButton />
           </Container>)
     }
 }
